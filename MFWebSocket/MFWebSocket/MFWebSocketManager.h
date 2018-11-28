@@ -74,6 +74,7 @@ typedef void(^MFSocketDidReceiveBlock)(NSDictionary *message, MFSocketReceiveTyp
 @property (nonatomic, copy, readonly) MFSocketDidFailBlock connectFailBlock;
 @property (nonatomic, copy, readonly) MFSocketDidCloseBlock closeBlock;
 @property (nonatomic, assign, readonly) SRReadyState socketReadyState;
+@property (nonatomic, assign, readonly, getter=isConnecting) BOOL connecting;
 
 /**
  * 发送心跳 和后台约定发送什么内容

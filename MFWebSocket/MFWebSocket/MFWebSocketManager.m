@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, MFSocketOpenType){
 @property (nonatomic, copy, readwrite) MFSocketDidConnectBlock connectSuccessBlock;
 @property (nonatomic, copy, readwrite) MFSocketDidFailBlock connectFailBlock;
 @property (nonatomic, copy, readwrite) MFSocketDidCloseBlock closeBlock;
+@property (nonatomic, assign, readwrite) BOOL connecting;
 
 @property (nonatomic, assign) MFSocketOpenType openType;
 
@@ -237,6 +238,7 @@ static MFWebSocketManager *instance;
         //重连失败
         [self p_closeSocketWithCode:MFSocketCloseReconnectFailCode reason:@"Reconnect socket fail"];
         [[NSNotificationCenter defaultCenter] postNotificationName:kSocketReconnectFailNotification object:nil];
+        self.connecting = NO;
         return;
     }
     
@@ -256,6 +258,7 @@ static MFWebSocketManager *instance;
         default:
             break;
     }
+    self.connecting = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:kSocketReconnectingNotification object:nil];
     
 }
