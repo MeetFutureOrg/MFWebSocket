@@ -34,7 +34,7 @@ Xcode 8+
 
 # Installation 安装
 ### 1.手动安装:
-下载DEMO后,将子文件夹MFWebSocket拖入到项目中, 导入头文件MFWebSocket.h开始使用, 注意: 项目中需要有'SocketRocket', '~> 0.5.1'第三方库!
+下载DEMO后,将子文件夹MFWebSocket拖入到项目中, 导入头文件`MFWebSocketManager.h`开始使用, 注意: 项目中需要有'SocketRocket', '~> 0.5.1'第三方库!
 
 ### 2.CocoaPods安装:
 first pod 'MFWebSocket',:git => 'https://github.com/MeetFutureOrg/MFWebSocket.git' 
