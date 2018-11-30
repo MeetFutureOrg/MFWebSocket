@@ -7,76 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A0C197C1F749904684582DE /* libPods-MFWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7650EFC2C1EF3B8406C5A7C6 /* libPods-MFWebSocket.a */; };
-		EAB49B0821AE89B600624D05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B0721AE89B600624D05 /* AppDelegate.m */; };
-		EAB49B0B21AE89B600624D05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B0A21AE89B600624D05 /* ViewController.m */; };
-		EAB49B0E21AE89B600624D05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB49B0C21AE89B600624D05 /* Main.storyboard */; };
-		EAB49B1021AE89B700624D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB49B0F21AE89B700624D05 /* Assets.xcassets */; };
-		EAB49B1321AE89B700624D05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB49B1121AE89B700624D05 /* LaunchScreen.storyboard */; };
-		EAB49B1621AE89B700624D05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B1521AE89B700624D05 /* main.m */; };
-		EAB49B2021AE89B700624D05 /* MFWebSocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B1F21AE89B700624D05 /* MFWebSocketTests.m */; };
-		EAB49B2B21AE89B700624D05 /* MFWebSocketUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B2A21AE89B700624D05 /* MFWebSocketUITests.m */; };
-		EAB49B3E21AE8A3600624D05 /* MFWebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B3D21AE8A3600624D05 /* MFWebSocketManager.m */; };
+		EAB49B5321B1358900624D05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B5221B1358900624D05 /* AppDelegate.m */; };
+		EAB49B5621B1358900624D05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B5521B1358900624D05 /* ViewController.m */; };
+		EAB49B5921B1358900624D05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB49B5721B1358900624D05 /* Main.storyboard */; };
+		EAB49B5B21B1358A00624D05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAB49B5A21B1358A00624D05 /* Assets.xcassets */; };
+		EAB49B5E21B1358A00624D05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAB49B5C21B1358A00624D05 /* LaunchScreen.storyboard */; };
+		EAB49B6121B1358A00624D05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B6021B1358A00624D05 /* main.m */; };
+		EAB49B6B21B1358A00624D05 /* MFWebSocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B6A21B1358A00624D05 /* MFWebSocketTests.m */; };
+		EAB49B7621B1358A00624D05 /* MFWebSocketUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B7521B1358A00624D05 /* MFWebSocketUITests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EAB49B1C21AE89B700624D05 /* PBXContainerItemProxy */ = {
+		EAB49B6721B1358A00624D05 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EAB49AFB21AE89B600624D05 /* Project object */;
+			containerPortal = EAB49B4621B1358900624D05 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EAB49B0221AE89B600624D05;
+			remoteGlobalIDString = EAB49B4D21B1358900624D05;
 			remoteInfo = MFWebSocket;
 		};
-		EAB49B2721AE89B700624D05 /* PBXContainerItemProxy */ = {
+		EAB49B7221B1358A00624D05 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EAB49AFB21AE89B600624D05 /* Project object */;
+			containerPortal = EAB49B4621B1358900624D05 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EAB49B0221AE89B600624D05;
+			remoteGlobalIDString = EAB49B4D21B1358900624D05;
 			remoteInfo = MFWebSocket;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2344A337BB218624C6D0DFBA /* Pods-MFWebSocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFWebSocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-MFWebSocket/Pods-MFWebSocket.release.xcconfig"; sourceTree = "<group>"; };
-		7650EFC2C1EF3B8406C5A7C6 /* libPods-MFWebSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MFWebSocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D85650330BE539E87881E2D3 /* Pods-MFWebSocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFWebSocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MFWebSocket/Pods-MFWebSocket.debug.xcconfig"; sourceTree = "<group>"; };
-		EAB49B0321AE89B600624D05 /* MFWebSocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFWebSocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAB49B0621AE89B600624D05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EAB49B0721AE89B600624D05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EAB49B0921AE89B600624D05 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EAB49B0A21AE89B600624D05 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EAB49B0D21AE89B600624D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EAB49B0F21AE89B700624D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EAB49B1221AE89B700624D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EAB49B1421AE89B700624D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EAB49B1521AE89B700624D05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EAB49B1B21AE89B700624D05 /* MFWebSocketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFWebSocketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAB49B1F21AE89B700624D05 /* MFWebSocketTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFWebSocketTests.m; sourceTree = "<group>"; };
-		EAB49B2121AE89B700624D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EAB49B2621AE89B700624D05 /* MFWebSocketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFWebSocketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAB49B2A21AE89B700624D05 /* MFWebSocketUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFWebSocketUITests.m; sourceTree = "<group>"; };
-		EAB49B2C21AE89B700624D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EAB49B3C21AE8A3600624D05 /* MFWebSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFWebSocketManager.h; sourceTree = "<group>"; };
-		EAB49B3D21AE8A3600624D05 /* MFWebSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFWebSocketManager.m; sourceTree = "<group>"; };
+		EAB49B4E21B1358900624D05 /* MFWebSocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MFWebSocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB49B5121B1358900624D05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EAB49B5221B1358900624D05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EAB49B5421B1358900624D05 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EAB49B5521B1358900624D05 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EAB49B5821B1358900624D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAB49B5A21B1358A00624D05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAB49B5D21B1358A00624D05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAB49B5F21B1358A00624D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAB49B6021B1358A00624D05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EAB49B6621B1358A00624D05 /* MFWebSocketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFWebSocketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB49B6A21B1358A00624D05 /* MFWebSocketTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFWebSocketTests.m; sourceTree = "<group>"; };
+		EAB49B6C21B1358A00624D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAB49B7121B1358A00624D05 /* MFWebSocketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFWebSocketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB49B7521B1358A00624D05 /* MFWebSocketUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFWebSocketUITests.m; sourceTree = "<group>"; };
+		EAB49B7721B1358A00624D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EAB49B0021AE89B600624D05 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A0C197C1F749904684582DE /* libPods-MFWebSocket.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EAB49B1821AE89B700624D05 /* Frameworks */ = {
+		EAB49B4B21B1358900624D05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAB49B2321AE89B700624D05 /* Frameworks */ = {
+		EAB49B6321B1358A00624D05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAB49B6E21B1358A00624D05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -86,100 +78,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		71612C2885EC25CEB10D5B8A /* Pods */ = {
+		EAB49B4521B1358900624D05 = {
 			isa = PBXGroup;
 			children = (
-				D85650330BE539E87881E2D3 /* Pods-MFWebSocket.debug.xcconfig */,
-				2344A337BB218624C6D0DFBA /* Pods-MFWebSocket.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		A46A74A4D6DBDF2DC4DD7656 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7650EFC2C1EF3B8406C5A7C6 /* libPods-MFWebSocket.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EAB49AFA21AE89B600624D05 = {
-			isa = PBXGroup;
-			children = (
-				EAB49B0521AE89B600624D05 /* MFWebSocket */,
-				EAB49B1E21AE89B700624D05 /* MFWebSocketTests */,
-				EAB49B2921AE89B700624D05 /* MFWebSocketUITests */,
-				EAB49B0421AE89B600624D05 /* Products */,
-				71612C2885EC25CEB10D5B8A /* Pods */,
-				A46A74A4D6DBDF2DC4DD7656 /* Frameworks */,
+				EAB49B5021B1358900624D05 /* MFWebSocket */,
+				EAB49B6921B1358A00624D05 /* MFWebSocketTests */,
+				EAB49B7421B1358A00624D05 /* MFWebSocketUITests */,
+				EAB49B4F21B1358900624D05 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EAB49B0421AE89B600624D05 /* Products */ = {
+		EAB49B4F21B1358900624D05 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EAB49B0321AE89B600624D05 /* MFWebSocket.app */,
-				EAB49B1B21AE89B700624D05 /* MFWebSocketTests.xctest */,
-				EAB49B2621AE89B700624D05 /* MFWebSocketUITests.xctest */,
+				EAB49B4E21B1358900624D05 /* MFWebSocket.app */,
+				EAB49B6621B1358A00624D05 /* MFWebSocketTests.xctest */,
+				EAB49B7121B1358A00624D05 /* MFWebSocketUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EAB49B0521AE89B600624D05 /* MFWebSocket */ = {
+		EAB49B5021B1358900624D05 /* MFWebSocket */ = {
 			isa = PBXGroup;
 			children = (
-				EAB49B3821AE8A1400624D05 /* MFWebSocket */,
-				EAB49B0621AE89B600624D05 /* AppDelegate.h */,
-				EAB49B0721AE89B600624D05 /* AppDelegate.m */,
-				EAB49B0921AE89B600624D05 /* ViewController.h */,
-				EAB49B0A21AE89B600624D05 /* ViewController.m */,
-				EAB49B0C21AE89B600624D05 /* Main.storyboard */,
-				EAB49B0F21AE89B700624D05 /* Assets.xcassets */,
-				EAB49B1121AE89B700624D05 /* LaunchScreen.storyboard */,
-				EAB49B1421AE89B700624D05 /* Info.plist */,
-				EAB49B1521AE89B700624D05 /* main.m */,
+				EAB49B5121B1358900624D05 /* AppDelegate.h */,
+				EAB49B5221B1358900624D05 /* AppDelegate.m */,
+				EAB49B5421B1358900624D05 /* ViewController.h */,
+				EAB49B5521B1358900624D05 /* ViewController.m */,
+				EAB49B5721B1358900624D05 /* Main.storyboard */,
+				EAB49B5A21B1358A00624D05 /* Assets.xcassets */,
+				EAB49B5C21B1358A00624D05 /* LaunchScreen.storyboard */,
+				EAB49B5F21B1358A00624D05 /* Info.plist */,
+				EAB49B6021B1358A00624D05 /* main.m */,
 			);
 			path = MFWebSocket;
 			sourceTree = "<group>";
 		};
-		EAB49B1E21AE89B700624D05 /* MFWebSocketTests */ = {
+		EAB49B6921B1358A00624D05 /* MFWebSocketTests */ = {
 			isa = PBXGroup;
 			children = (
-				EAB49B1F21AE89B700624D05 /* MFWebSocketTests.m */,
-				EAB49B2121AE89B700624D05 /* Info.plist */,
+				EAB49B6A21B1358A00624D05 /* MFWebSocketTests.m */,
+				EAB49B6C21B1358A00624D05 /* Info.plist */,
 			);
 			path = MFWebSocketTests;
 			sourceTree = "<group>";
 		};
-		EAB49B2921AE89B700624D05 /* MFWebSocketUITests */ = {
+		EAB49B7421B1358A00624D05 /* MFWebSocketUITests */ = {
 			isa = PBXGroup;
 			children = (
-				EAB49B2A21AE89B700624D05 /* MFWebSocketUITests.m */,
-				EAB49B2C21AE89B700624D05 /* Info.plist */,
+				EAB49B7521B1358A00624D05 /* MFWebSocketUITests.m */,
+				EAB49B7721B1358A00624D05 /* Info.plist */,
 			);
 			path = MFWebSocketUITests;
-			sourceTree = "<group>";
-		};
-		EAB49B3821AE8A1400624D05 /* MFWebSocket */ = {
-			isa = PBXGroup;
-			children = (
-				EAB49B3C21AE8A3600624D05 /* MFWebSocketManager.h */,
-				EAB49B3D21AE8A3600624D05 /* MFWebSocketManager.m */,
-			);
-			path = MFWebSocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EAB49B0221AE89B600624D05 /* MFWebSocket */ = {
+		EAB49B4D21B1358900624D05 /* MFWebSocket */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAB49B2F21AE89B700624D05 /* Build configuration list for PBXNativeTarget "MFWebSocket" */;
+			buildConfigurationList = EAB49B7A21B1358A00624D05 /* Build configuration list for PBXNativeTarget "MFWebSocket" */;
 			buildPhases = (
-				5A9D0AF5D6A0B8FE291C676E /* [CP] Check Pods Manifest.lock */,
-				EAB49AFF21AE89B600624D05 /* Sources */,
-				EAB49B0021AE89B600624D05 /* Frameworks */,
-				EAB49B0121AE89B600624D05 /* Resources */,
+				EAB49B4A21B1358900624D05 /* Sources */,
+				EAB49B4B21B1358900624D05 /* Frameworks */,
+				EAB49B4C21B1358900624D05 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -187,68 +149,68 @@
 			);
 			name = MFWebSocket;
 			productName = MFWebSocket;
-			productReference = EAB49B0321AE89B600624D05 /* MFWebSocket.app */;
+			productReference = EAB49B4E21B1358900624D05 /* MFWebSocket.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EAB49B1A21AE89B700624D05 /* MFWebSocketTests */ = {
+		EAB49B6521B1358A00624D05 /* MFWebSocketTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAB49B3221AE89B700624D05 /* Build configuration list for PBXNativeTarget "MFWebSocketTests" */;
+			buildConfigurationList = EAB49B7D21B1358A00624D05 /* Build configuration list for PBXNativeTarget "MFWebSocketTests" */;
 			buildPhases = (
-				EAB49B1721AE89B700624D05 /* Sources */,
-				EAB49B1821AE89B700624D05 /* Frameworks */,
-				EAB49B1921AE89B700624D05 /* Resources */,
+				EAB49B6221B1358A00624D05 /* Sources */,
+				EAB49B6321B1358A00624D05 /* Frameworks */,
+				EAB49B6421B1358A00624D05 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EAB49B1D21AE89B700624D05 /* PBXTargetDependency */,
+				EAB49B6821B1358A00624D05 /* PBXTargetDependency */,
 			);
 			name = MFWebSocketTests;
 			productName = MFWebSocketTests;
-			productReference = EAB49B1B21AE89B700624D05 /* MFWebSocketTests.xctest */;
+			productReference = EAB49B6621B1358A00624D05 /* MFWebSocketTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EAB49B2521AE89B700624D05 /* MFWebSocketUITests */ = {
+		EAB49B7021B1358A00624D05 /* MFWebSocketUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EAB49B3521AE89B800624D05 /* Build configuration list for PBXNativeTarget "MFWebSocketUITests" */;
+			buildConfigurationList = EAB49B8021B1358A00624D05 /* Build configuration list for PBXNativeTarget "MFWebSocketUITests" */;
 			buildPhases = (
-				EAB49B2221AE89B700624D05 /* Sources */,
-				EAB49B2321AE89B700624D05 /* Frameworks */,
-				EAB49B2421AE89B700624D05 /* Resources */,
+				EAB49B6D21B1358A00624D05 /* Sources */,
+				EAB49B6E21B1358A00624D05 /* Frameworks */,
+				EAB49B6F21B1358A00624D05 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EAB49B2821AE89B700624D05 /* PBXTargetDependency */,
+				EAB49B7321B1358A00624D05 /* PBXTargetDependency */,
 			);
 			name = MFWebSocketUITests;
 			productName = MFWebSocketUITests;
-			productReference = EAB49B2621AE89B700624D05 /* MFWebSocketUITests.xctest */;
+			productReference = EAB49B7121B1358A00624D05 /* MFWebSocketUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EAB49AFB21AE89B600624D05 /* Project object */ = {
+		EAB49B4621B1358900624D05 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = meetfuture;
 				TargetAttributes = {
-					EAB49B0221AE89B600624D05 = {
+					EAB49B4D21B1358900624D05 = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					EAB49B1A21AE89B700624D05 = {
+					EAB49B6521B1358A00624D05 = {
 						CreatedOnToolsVersion = 10.1;
-						TestTargetID = EAB49B0221AE89B600624D05;
+						TestTargetID = EAB49B4D21B1358900624D05;
 					};
-					EAB49B2521AE89B700624D05 = {
+					EAB49B7021B1358A00624D05 = {
 						CreatedOnToolsVersion = 10.1;
-						TestTargetID = EAB49B0221AE89B600624D05;
+						TestTargetID = EAB49B4D21B1358900624D05;
 					};
 				};
 			};
-			buildConfigurationList = EAB49AFE21AE89B600624D05 /* Build configuration list for PBXProject "MFWebSocket" */;
+			buildConfigurationList = EAB49B4921B1358900624D05 /* Build configuration list for PBXProject "MFWebSocket" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -256,37 +218,37 @@
 				en,
 				Base,
 			);
-			mainGroup = EAB49AFA21AE89B600624D05;
-			productRefGroup = EAB49B0421AE89B600624D05 /* Products */;
+			mainGroup = EAB49B4521B1358900624D05;
+			productRefGroup = EAB49B4F21B1358900624D05 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EAB49B0221AE89B600624D05 /* MFWebSocket */,
-				EAB49B1A21AE89B700624D05 /* MFWebSocketTests */,
-				EAB49B2521AE89B700624D05 /* MFWebSocketUITests */,
+				EAB49B4D21B1358900624D05 /* MFWebSocket */,
+				EAB49B6521B1358A00624D05 /* MFWebSocketTests */,
+				EAB49B7021B1358A00624D05 /* MFWebSocketUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EAB49B0121AE89B600624D05 /* Resources */ = {
+		EAB49B4C21B1358900624D05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAB49B1321AE89B700624D05 /* LaunchScreen.storyboard in Resources */,
-				EAB49B1021AE89B700624D05 /* Assets.xcassets in Resources */,
-				EAB49B0E21AE89B600624D05 /* Main.storyboard in Resources */,
+				EAB49B5E21B1358A00624D05 /* LaunchScreen.storyboard in Resources */,
+				EAB49B5B21B1358A00624D05 /* Assets.xcassets in Resources */,
+				EAB49B5921B1358900624D05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAB49B1921AE89B700624D05 /* Resources */ = {
+		EAB49B6421B1358A00624D05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAB49B2421AE89B700624D05 /* Resources */ = {
+		EAB49B6F21B1358A00624D05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -295,87 +257,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5A9D0AF5D6A0B8FE291C676E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MFWebSocket-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		EAB49AFF21AE89B600624D05 /* Sources */ = {
+		EAB49B4A21B1358900624D05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAB49B3E21AE8A3600624D05 /* MFWebSocketManager.m in Sources */,
-				EAB49B0B21AE89B600624D05 /* ViewController.m in Sources */,
-				EAB49B1621AE89B700624D05 /* main.m in Sources */,
-				EAB49B0821AE89B600624D05 /* AppDelegate.m in Sources */,
+				EAB49B5621B1358900624D05 /* ViewController.m in Sources */,
+				EAB49B6121B1358A00624D05 /* main.m in Sources */,
+				EAB49B5321B1358900624D05 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAB49B1721AE89B700624D05 /* Sources */ = {
+		EAB49B6221B1358A00624D05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAB49B2021AE89B700624D05 /* MFWebSocketTests.m in Sources */,
+				EAB49B6B21B1358A00624D05 /* MFWebSocketTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EAB49B2221AE89B700624D05 /* Sources */ = {
+		EAB49B6D21B1358A00624D05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAB49B2B21AE89B700624D05 /* MFWebSocketUITests.m in Sources */,
+				EAB49B7621B1358A00624D05 /* MFWebSocketUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EAB49B1D21AE89B700624D05 /* PBXTargetDependency */ = {
+		EAB49B6821B1358A00624D05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EAB49B0221AE89B600624D05 /* MFWebSocket */;
-			targetProxy = EAB49B1C21AE89B700624D05 /* PBXContainerItemProxy */;
+			target = EAB49B4D21B1358900624D05 /* MFWebSocket */;
+			targetProxy = EAB49B6721B1358A00624D05 /* PBXContainerItemProxy */;
 		};
-		EAB49B2821AE89B700624D05 /* PBXTargetDependency */ = {
+		EAB49B7321B1358A00624D05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EAB49B0221AE89B600624D05 /* MFWebSocket */;
-			targetProxy = EAB49B2721AE89B700624D05 /* PBXContainerItemProxy */;
+			target = EAB49B4D21B1358900624D05 /* MFWebSocket */;
+			targetProxy = EAB49B7221B1358A00624D05 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EAB49B0C21AE89B600624D05 /* Main.storyboard */ = {
+		EAB49B5721B1358900624D05 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EAB49B0D21AE89B600624D05 /* Base */,
+				EAB49B5821B1358900624D05 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		EAB49B1121AE89B700624D05 /* LaunchScreen.storyboard */ = {
+		EAB49B5C21B1358A00624D05 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EAB49B1221AE89B700624D05 /* Base */,
+				EAB49B5D21B1358A00624D05 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -383,7 +319,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EAB49B2D21AE89B700624D05 /* Debug */ = {
+		EAB49B7821B1358A00624D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -442,7 +378,7 @@
 			};
 			name = Debug;
 		};
-		EAB49B2E21AE89B700624D05 /* Release */ = {
+		EAB49B7921B1358A00624D05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -495,9 +431,8 @@
 			};
 			name = Release;
 		};
-		EAB49B3021AE89B700624D05 /* Debug */ = {
+		EAB49B7B21B1358A00624D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D85650330BE539E87881E2D3 /* Pods-MFWebSocket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -512,9 +447,8 @@
 			};
 			name = Debug;
 		};
-		EAB49B3121AE89B700624D05 /* Release */ = {
+		EAB49B7C21B1358A00624D05 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2344A337BB218624C6D0DFBA /* Pods-MFWebSocket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -529,7 +463,7 @@
 			};
 			name = Release;
 		};
-		EAB49B3321AE89B700624D05 /* Debug */ = {
+		EAB49B7E21B1358A00624D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -547,7 +481,7 @@
 			};
 			name = Debug;
 		};
-		EAB49B3421AE89B700624D05 /* Release */ = {
+		EAB49B7F21B1358A00624D05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -565,7 +499,7 @@
 			};
 			name = Release;
 		};
-		EAB49B3621AE89B800624D05 /* Debug */ = {
+		EAB49B8121B1358A00624D05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -582,7 +516,7 @@
 			};
 			name = Debug;
 		};
-		EAB49B3721AE89B800624D05 /* Release */ = {
+		EAB49B8221B1358A00624D05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -602,43 +536,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EAB49AFE21AE89B600624D05 /* Build configuration list for PBXProject "MFWebSocket" */ = {
+		EAB49B4921B1358900624D05 /* Build configuration list for PBXProject "MFWebSocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EAB49B2D21AE89B700624D05 /* Debug */,
-				EAB49B2E21AE89B700624D05 /* Release */,
+				EAB49B7821B1358A00624D05 /* Debug */,
+				EAB49B7921B1358A00624D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAB49B2F21AE89B700624D05 /* Build configuration list for PBXNativeTarget "MFWebSocket" */ = {
+		EAB49B7A21B1358A00624D05 /* Build configuration list for PBXNativeTarget "MFWebSocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EAB49B3021AE89B700624D05 /* Debug */,
-				EAB49B3121AE89B700624D05 /* Release */,
+				EAB49B7B21B1358A00624D05 /* Debug */,
+				EAB49B7C21B1358A00624D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAB49B3221AE89B700624D05 /* Build configuration list for PBXNativeTarget "MFWebSocketTests" */ = {
+		EAB49B7D21B1358A00624D05 /* Build configuration list for PBXNativeTarget "MFWebSocketTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EAB49B3321AE89B700624D05 /* Debug */,
-				EAB49B3421AE89B700624D05 /* Release */,
+				EAB49B7E21B1358A00624D05 /* Debug */,
+				EAB49B7F21B1358A00624D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EAB49B3521AE89B800624D05 /* Build configuration list for PBXNativeTarget "MFWebSocketUITests" */ = {
+		EAB49B8021B1358A00624D05 /* Build configuration list for PBXNativeTarget "MFWebSocketUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EAB49B3621AE89B800624D05 /* Debug */,
-				EAB49B3721AE89B800624D05 /* Release */,
+				EAB49B8121B1358A00624D05 /* Debug */,
+				EAB49B8221B1358A00624D05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EAB49AFB21AE89B600624D05 /* Project object */;
+	rootObject = EAB49B4621B1358900624D05 /* Project object */;
 }
