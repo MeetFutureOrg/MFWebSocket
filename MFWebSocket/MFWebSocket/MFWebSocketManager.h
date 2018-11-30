@@ -123,11 +123,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) NSString *errorDomain;
 
-/**
- * 第一次open socket失败是否需要启动重连，默认NO
- */
-@property (nonatomic, assign) BOOL openFailNeedReconnect;
-
 + (instancetype)shareManager;
 
 /**

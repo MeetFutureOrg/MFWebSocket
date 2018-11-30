@@ -17,7 +17,6 @@ dispatch_async(dispatch_get_main_queue(), block);\
 
 #define WeakSelf __weak typeof(self) weakSelf = self;
 
-
 NSString * const kSocketConnectSuccessNotification = @"kSocketConnectSuccessNotification";
 NSString * const kSocketConnectFailNotification = @"kSocketConnectFailNotification";
 NSString * const kSocketCloseNotification = @"kSocketCloseNotification";
@@ -205,7 +204,7 @@ static MFWebSocketManager *instance;
                 if (self.closeBlock) {
                     self.closeBlock(MFSocketCloseErrorCode, @"Unkonw error cause socket close!", 0);
                 }
-                [[NSNotificationCenter defaultCenter] postNotificationName:kSocketCloseNotification object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kSocketCloseNotification object:self userInfo:@{@"code":@(MFSocketCloseErrorCode),@"error":@"Unkonw error cause socket close!"}];
             }
                 break;
             case SR_CONNECTING: {
@@ -228,16 +227,13 @@ static MFWebSocketManager *instance;
     }
 }
 
-/**
- * 不主动调用这个方法，统一在didClose回调中调用，避免close未执行完毕，又open生成了新的socket实例
- */
 - (void)p_reconnectSocket {
     
     self.tryReconnectTimes ++;
     if (_tryReconnectTimes >= _maxReconnectTimes) {
         //重连失败
         [self p_closeSocketWithCode:MFSocketCloseReconnectFailCode reason:@"Reconnect socket fail"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSocketReconnectFailNotification object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kSocketReconnectFailNotification object:self userInfo:@{@"code":@(MFSocketCloseReconnectFailCode),@"reason":@"Reconnect socket fail"}];
         self.connecting = NO;
         return;
     }
@@ -259,7 +255,7 @@ static MFWebSocketManager *instance;
             break;
     }
     self.connecting = YES;
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSocketReconnectingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSocketReconnectingNotification object:self];
     
 }
 
@@ -316,7 +312,10 @@ static MFWebSocketManager *instance;
         self.tryPingTimes ++;
     }
     if (self.tryPingTimes >=  self.maxPingTimes) {
-        [self p_closeSocketWithCode:MFSocketCloseToReconnectCode reason:@"Socket need reconnect"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(_tryReconnectTimes * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self p_destoryHeartBeat];
+            [self p_reconnectSocket];
+        });
     } else {
         [self p_socketSendPingData];
     }
@@ -352,7 +351,6 @@ static MFWebSocketManager *instance;
     _pingInterval = 2;                      //ping发送时间，默认2秒一次
     _manualStartHeartBeat = NO;
     _startHeartBeatDelay = 0;
-    _openFailNeedReconnect = NO;
 }
 
 - (NSString *)p_currentTimeString {
@@ -453,7 +451,7 @@ static MFWebSocketManager *instance;
     if ([self.delegate respondsToSelector:@selector(MFWebSocketDidOpen:)]) {
         [self.delegate MFWebSocketDidOpen:webSocket];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSocketConnectSuccessNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSocketConnectSuccessNotification object:self];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error {
@@ -464,13 +462,12 @@ static MFWebSocketManager *instance;
     if ([self.delegate respondsToSelector:@selector(MFWebSocket:didFailWithError:)]) {
         [self.delegate MFWebSocket:webSocket didFailWithError:error];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSocketConnectFailNotification object:nil];
-    
-    // 重连
-    if (self.openFailNeedReconnect) {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSocketConnectFailNotification object:self];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(_tryReconnectTimes * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self p_destoryHeartBeat];
         [self p_reconnectSocket];
-    }
-    
+    });
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean {
@@ -480,6 +477,7 @@ static MFWebSocketManager *instance;
     switch (code) {
         case MFSocketCloseToReconnectCode: {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(_tryReconnectTimes * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self p_destoryHeartBeat];
                 [self p_reconnectSocket];
             });
         }
@@ -490,7 +488,7 @@ static MFWebSocketManager *instance;
             }
             
             //            @{MFSocketFailCodeKey: formatString(@"%zd", code), MFSocketFailReasonKey: reason, MFSocketFailCleanFlagKey: formatString(@"%d", wasClean)}
-            [[NSNotificationCenter defaultCenter] postNotificationName:kSocketCloseNotification object:nil userInfo:@{MFSocketClosedCodeKey: [NSNumber numberWithInteger:code], MFSocketClosedReasonKey: reason ?: @"", MFSocketClosedCleanFlagKey: [NSNumber numberWithBool:wasClean]}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSocketCloseNotification object:self userInfo:@{MFSocketClosedCodeKey: [NSNumber numberWithInteger:code], MFSocketClosedReasonKey: reason ?: @"", MFSocketClosedCleanFlagKey: [NSNumber numberWithBool:wasClean]}];
         }
             break;
     }
@@ -514,6 +512,7 @@ static MFWebSocketManager *instance;
 
 - (void)dealloc{
     // Close WebSocket
+    [self p_destoryHeartBeat];
     [self p_closeSocket];
 }
 
@@ -562,6 +561,5 @@ static inline NSString *formatString(NSString *format, ...) NS_FORMAT_FUNCTION(1
     return message;
 }
 #pragma GCC diagnostic pop
-
 
 @end
