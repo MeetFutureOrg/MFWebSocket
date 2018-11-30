@@ -27,7 +27,7 @@ Encapsulate a WebSocket library base on Facebook's SocketRocket library.
 ```
 
 # Requirements 要求
-iOS 7+</br>
+iOS 8+</br>
 Xcode 8+
 
 ***
