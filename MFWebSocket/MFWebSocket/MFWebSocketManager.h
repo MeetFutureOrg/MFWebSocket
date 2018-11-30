@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SocketRocket/SocketRocket.h"
+//#import "SocketRocket/SocketRocket.h"
+#import "SocketRocket/SRWebSocket.h"
 
 #define MFWebSocketShareManager [MFWebSocketManager shareManager]
 
