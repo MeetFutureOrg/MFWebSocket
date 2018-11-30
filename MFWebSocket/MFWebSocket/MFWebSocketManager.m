@@ -149,6 +149,7 @@ static MFWebSocketManager *instance;
 
 - (void)mf_manualStartHeartBeatAfterDelay:(NSTimeInterval)delay {
     NSAssert(delay>=0, @"Error: 延迟不能小于0");
+    _manualStartHeartBeat = YES;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self p_initHeartBeat];
@@ -350,7 +351,7 @@ static MFWebSocketManager *instance;
     _maxPingTimes = 3;                      //ping不通的最大次数，默认3次，3次ping不通（6秒），则认为掉线
     _pingInterval = 2;                      //ping发送时间，默认2秒一次
     _manualStartHeartBeat = NO;
-    _startHeartBeatDelay = 0;
+    _autoStartHeartBeatDelay = 0;
 }
 
 - (NSString *)p_currentTimeString {
@@ -440,7 +441,7 @@ static MFWebSocketManager *instance;
     _tryPingTimes = 0;
     
     if (!_manualStartHeartBeat) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(_startHeartBeatDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(_autoStartHeartBeatDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self p_initHeartBeat];
         });
     }

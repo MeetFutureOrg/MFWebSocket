@@ -91,9 +91,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL manualStartHeartBeat;
 
 /**
- * 延迟多少秒启动heartBeat，默认为0
+ * 延迟多少秒自动启动HearBeat，默认为0
  */
-@property (nonatomic, assign) NSTimeInterval startHeartBeatDelay;
+@property (nonatomic, assign) NSTimeInterval autoStartHeartBeatDelay;
 
 /**
  * 重连次数，默认5次
@@ -162,7 +162,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)mf_send:(NSDictionary *)dicData receive:(MFSocketDidReceiveBlock)receiveBlock failure:(MFSocketDidFailBlock)failureBlock;
 
 /**
- * 手动启动HeartBeat，调用之后会将manualStartHeartBeat置为YES，再将manualStartHeartBeat更改回NO之前，都要自己手动启动
+ * 手动启动HeartBeat，调用之后会将manualStartHeartBeat置为YES
  *
  * @param delay 延迟
  */
