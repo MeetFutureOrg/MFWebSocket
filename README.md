@@ -7,7 +7,7 @@ Encapsulate a WebSocket library base on Facebook's SocketRocket library.
 
 # Notice 须知
 ### 1. 说明 
-为实现Send超时功能，每一个send的参数都默认添加了一个格式为`@"identificationID": @"2018-11-30 15:33:06.34337576"`的key-value，每次send都需要服务端原封 不动返回这个key-value
+为实现Send超时功能，每一个send的参数都默认添加了一个格式为`@"identificationID": @"2018-11-30 15:33:06.34337576"`的key-value，每次send都需要服务端原封不动返回这个key-value
 
 ### 2. 示例
 #### 2.1 用户发送
@@ -103,7 +103,7 @@ MFWebSocketShareManager.manualStartHeartBeat = YES;
 
 ```
 
-### 5. Other  Setting 其他设置
+### 5. Other Setting 其他设置
 **这些设置都需要在open socket之前设置才会生效**
 
 #### 5.1 ping info ping信息
@@ -124,7 +124,7 @@ pingInfo类型需要是NSSting或者NSData类型，内容与服务端定义
 ```oc
 @property (nonatomic, assign) NSUInteger maxReconnectTimes;
 ```
-#### 5.4 open与 send超时时间
+#### 5.4 open与send超时时间
 open与 send超时时间
 默认为5秒
 ```oc
