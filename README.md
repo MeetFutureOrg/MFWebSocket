@@ -6,15 +6,28 @@ Encapsulate a WebSocket library base on Facebook's SocketRocket library.
 ***
 
 # Notice 须知
-**WebSocket与Htpp请求不同，默认是长连接，除open socket超时以外，SocketRocet没有为send命令实现超时。**
-**若要实现send超时功能，则需与后台约定好每个send命令都要包含一个命令标识，并且每条命令服务端都需要应答。**
-**这里的实现是在每一个send命令字典中添加了一个key叫identificationID的key-value（App端已自动添加，不需要自己额外添加），服务端只需要每次把这个identificationID原封不动返回即可。**
+### 1. 说明 
+为实现Send超时功能，每一个send的参数都默认添加了一个格式为`@"identificationID": @"2018-11-30 15:33:06.34337576"`的key-value，每次send都需要服务端原封不动返回这个key-value
 
-**用户命令参数：@{@"cmd": @"test"}**
-**实际Send命令参数：@{@"cmd": @"test",@"identificationID": @"2018-11-30 15:33:06.34337576"}。**
+### 2. 示例
+#### 2.1 用户发送
+用户命令参数：
+```oc
+@{@"cmd": @"test"}
+```
+实际Send命令参数：
+```oc
+@{@"cmd": @"test",@"identificationID": @"2018-11-30 15:33:06.34337576"}。
+```
 **identificationID字段无需自己添加，但是需要服务端返回**
+#### 2.2 服务端返回
+```oc
+@{@"identificationID":  @"2018-11-30 15:33:06.34337576",  //identificationID标识
+@"xxx": @"xxx"//服务端返回的其他数据}。
+```
+
 # Requirements 要求
-iOS 7+
+iOS 7+</br>
 Xcode 8+
 
 ***
@@ -24,7 +37,8 @@ Xcode 8+
 下载DEMO后,将子文件夹MFWebSocket拖入到项目中, 导入头文件MFWebSocket.h开始使用, 注意: 项目中需要有'SocketRocket', '~> 0.5.1'第三方库!
 
 ### 2.CocoaPods安装:
-first pod 'MFWebSocket',:git => 'https://github.com/MeetFutureOrg/MFWebSocket.git' then pod install或pod install --no-repo-update
+first pod 'MFWebSocket',:git => 'https://github.com/MeetFutureOrg/MFWebSocket.git' 
+then pod install或pod install --no-repo-update
 
 如果发现pod search MFWebSocket 不是最新版本，在终端执行pod setup命令更新本地spec镜像缓存(时间可能有点长),重新搜索就OK了
 
@@ -81,7 +95,8 @@ first pod 'MFWebSocket',:git => 'https://github.com/MeetFutureOrg/MFWebSocket.gi
 默认自动开启
 #### 4.2 手动开启
 ```oc
-MFWebSocketShareManager.manualStartHeartBeat = YES;//先设置需要手动开启
+//先设置需要手动开启
+MFWebSocketShareManager.manualStartHeartBeat = YES;
 
 //手动开启
 [MFWebSocketShareManager mf_manualStartHeartBeatAfterDelay:5.0];
@@ -110,13 +125,13 @@ pingInfo类型需要是NSSting或者NSData类型，内容与服务端定义
 @property (nonatomic, assign) NSUInteger maxReconnectTimes;
 ```
 #### 5.4 open与send超时时间
-open与send超时时间
+open与 send超时时间
 默认为5秒
 ```oc
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 ```
 #### 5.5 最大ping次数
-最大ping次数，多少次ping不通，则认为掉线
+最大ping次数，多少次ping不通， 则认为掉线
 默认为3次
 ```oc
 @property (nonatomic, assign) NSUInteger maxPingTimes;
@@ -135,7 +150,7 @@ ping时间间隔，多少秒ping一次
 ```
 
 # 联系方式:
-Email : xiebangyao_1994@163.com
+Email : xiebangyao_1994@163.com</br>
 Blog : https://adrenine.github.io/
 
 # 许可证
