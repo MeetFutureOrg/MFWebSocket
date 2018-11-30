@@ -15,6 +15,7 @@
 		EAB49B6121B1358A00624D05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B6021B1358A00624D05 /* main.m */; };
 		EAB49B6B21B1358A00624D05 /* MFWebSocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B6A21B1358A00624D05 /* MFWebSocketTests.m */; };
 		EAB49B7621B1358A00624D05 /* MFWebSocketUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B7521B1358A00624D05 /* MFWebSocketUITests.m */; };
+		EAB49B8621B135E800624D05 /* MFWebSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB49B8421B135E800624D05 /* MFWebSocketManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		EAB49B7121B1358A00624D05 /* MFWebSocketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MFWebSocketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB49B7521B1358A00624D05 /* MFWebSocketUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFWebSocketUITests.m; sourceTree = "<group>"; };
 		EAB49B7721B1358A00624D05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAB49B8421B135E800624D05 /* MFWebSocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFWebSocketManager.m; sourceTree = "<group>"; };
+		EAB49B8521B135E800624D05 /* MFWebSocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFWebSocketManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 		EAB49B5021B1358900624D05 /* MFWebSocket */ = {
 			isa = PBXGroup;
 			children = (
+				EAB49B8321B135E800624D05 /* MFWebSocket */,
 				EAB49B5121B1358900624D05 /* AppDelegate.h */,
 				EAB49B5221B1358900624D05 /* AppDelegate.m */,
 				EAB49B5421B1358900624D05 /* ViewController.h */,
@@ -130,6 +134,15 @@
 				EAB49B7721B1358A00624D05 /* Info.plist */,
 			);
 			path = MFWebSocketUITests;
+			sourceTree = "<group>";
+		};
+		EAB49B8321B135E800624D05 /* MFWebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				EAB49B8421B135E800624D05 /* MFWebSocketManager.m */,
+				EAB49B8521B135E800624D05 /* MFWebSocketManager.h */,
+			);
+			path = MFWebSocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAB49B8621B135E800624D05 /* MFWebSocketManager.m in Sources */,
 				EAB49B5621B1358900624D05 /* ViewController.m in Sources */,
 				EAB49B6121B1358A00624D05 /* main.m in Sources */,
 				EAB49B5321B1358900624D05 /* AppDelegate.m in Sources */,
