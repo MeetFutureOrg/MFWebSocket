@@ -39,9 +39,9 @@ typedef NS_ENUM(NSInteger, MFSocketOpenType){
 
 @property (nonatomic, strong, readwrite) SRWebSocket *webSocket;
 
-@property (nonatomic, copy, readwrite) MFSocketDidConnectBlock connectSuccessBlock;
-@property (nonatomic, copy, readwrite) MFSocketDidFailBlock connectFailBlock;
-@property (nonatomic, copy, readwrite) MFSocketDidCloseBlock closeBlock;
+@property (nonatomic, copy, readwrite) MFSocketConnectSuccessBlock connectSuccessBlock;
+@property (nonatomic, copy, readwrite) MFSocketFailBlock connectFailBlock;
+@property (nonatomic, copy, readwrite) MFSocketCloseBlock closeBlock;
 @property (nonatomic, assign, readwrite) BOOL connecting;
 
 @property (nonatomic, assign) MFSocketOpenType openType;
@@ -110,7 +110,9 @@ static MFWebSocketManager *instance;
 }
 
 #pragma mark - ---- Public Method
-- (void)mf_openWithUrlString:(NSString *)urlStr connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock {
+- (void)mf_openWithUrlString:(NSString *)urlStr
+                     connect:(MFSocketConnectSuccessBlock)connectBlock
+                     failure:(MFSocketFailBlock)failureBlock {
     NSAssert(urlStr.length>0, @"Url String不能为空!");
     self.openUrlString = urlStr;
     self.openType = MFSocketOpenByUrlString;
@@ -119,7 +121,9 @@ static MFWebSocketManager *instance;
     [self mf_openWithRequest:request connect:connectBlock failure:failureBlock];
 }
 
-- (void)mf_openWithUrl:(NSURL *)url connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock {
+- (void)mf_openWithUrl:(NSURL *)url
+               connect:(MFSocketConnectSuccessBlock)connectBlock
+               failure:(MFSocketFailBlock)failureBlock {
     NSAssert(url != nil, @"Url不能为空!");
     self.openUrl = url;
     self.openType = MFSocketOpenByUrl;
@@ -128,7 +132,9 @@ static MFWebSocketManager *instance;
     [self mf_openWithRequest:request connect:connectBlock failure:failureBlock];
 }
 
-- (void)mf_openWithRequest:(NSURLRequest *)request connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock {
+- (void)mf_openWithRequest:(NSURLRequest *)request
+                   connect:(MFSocketConnectSuccessBlock)connectBlock
+                   failure:(MFSocketFailBlock)failureBlock {
     NSAssert(request != nil , @"Request参数不能为空!");
     self.openRequest = request;
     self.openType = MFSocketOpenByRequest;
@@ -142,7 +148,7 @@ static MFWebSocketManager *instance;
     [self.webSocket open];
 }
 
-- (void)mf_closeSocketWithBlock:(MFSocketDidCloseBlock)closeBlock {
+- (void)mf_closeSocketWithBlock:(MFSocketCloseBlock)closeBlock {
     self.closeBlock = closeBlock;
     [self p_closeSocketWithCode:MFSocketCloseNormalCode reason:@"Socket close normal!"];
 }
@@ -156,7 +162,9 @@ static MFWebSocketManager *instance;
     });
 }
 
-- (void)mf_send:(NSDictionary *)dicData receive:(MFSocketDidReceiveBlock)receiveBlock failure:(MFSocketDidFailBlock)failureBlock {
+- (void)mf_send:(NSDictionary *)dicData
+        receive:(MFSocketReceiveMessageBlock)receiveBlock
+        failure:(MFSocketFailBlock)failureBlock {
     if (dicData == nil || dicData.allKeys.count<1) {
         return;
     }
@@ -220,7 +228,7 @@ static MFWebSocketManager *instance;
         NSTimer *timer = [sendRequestDic objectForKey:kSendTimerKey];
         [timer invalidate];
         timer = nil;
-        MFSocketDidFailBlock failBlock = [sendRequestDic objectForKey:kReceiveFailBlockKey];
+        MFSocketFailBlock failBlock = [sendRequestDic objectForKey:kReceiveFailBlockKey];
         if (failBlock) {
             failBlock([NSError errorWithDomain:_errorDomain code:MFSocketEmptyCode userInfo:@{NSLocalizedDescriptionKey: @"Send message fail MF socket was clean up"}]);
         }
@@ -374,7 +382,7 @@ static MFWebSocketManager *instance;
     if ([self.allSendRequestDic.allKeys containsObject:identificationID]) {
         NSMutableDictionary * callBackDic = [self.allSendRequestDic objectForKey:identificationID];
         
-        MFSocketDidFailBlock failure = callBackDic[kReceiveFailBlockKey];
+        MFSocketFailBlock failure = callBackDic[kReceiveFailBlockKey];
         if (failure) {
             failure([NSError errorWithDomain:_errorDomain code:MFSocketTimeoutCode userInfo:@{NSLocalizedDescriptionKey: @"Timeout Connecting to Server"}]);
         }
@@ -423,7 +431,7 @@ static MFWebSocketManager *instance;
     NSDictionary *sendRequestDic = self.allSendRequestDic[identificationID];
     
     if (webSocket == self.webSocket) {
-        MFSocketDidReceiveBlock receiveBlock = sendRequestDic[kReceiveSuccessBlockKey];
+        MFSocketReceiveMessageBlock receiveBlock = sendRequestDic[kReceiveSuccessBlockKey];
         if (receiveBlock) {
             receiveBlock(parseDataDic, MFSocketReceiveTypeForMessage);
         }
@@ -433,7 +441,7 @@ static MFWebSocketManager *instance;
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:kSocketReceiveMessageNotification object:parseDataDic];
     } else {
-        MFSocketDidFailBlock failBlock = sendRequestDic[kReceiveFailBlockKey];
+        MFSocketFailBlock failBlock = sendRequestDic[kReceiveFailBlockKey];
         if (failBlock) {
             failBlock([NSError errorWithDomain:_errorDomain code:MFSocketChangedCode userInfo:@{NSLocalizedDescriptionKey: @"Socket did changed!"}]);
         }

@@ -57,22 +57,22 @@ typedef NS_ENUM(NSInteger, MFSocketCode){
     
 };
 
-typedef void(^MFSocketDidConnectBlock)(void);
+typedef void(^MFSocketConnectSuccessBlock)(void);
 
-typedef void(^MFSocketDidFailBlock)(NSError *error);
+typedef void(^MFSocketFailBlock)(NSError *error);
 
-typedef void(^MFSocketDidCloseBlock)(NSInteger code,NSString *reason,BOOL wasClean);
+typedef void(^MFSocketCloseBlock)(NSInteger code,NSString *reason,BOOL wasClean);
 
-typedef void(^MFSocketDidReceiveBlock)(NSDictionary *message, MFSocketReceiveType type);
+typedef void(^MFSocketReceiveMessageBlock)(NSDictionary *message, MFSocketReceiveType type);
 
 @interface MFWebSocketManager : NSObject
 
 @property (nonatomic, strong, readonly) SRWebSocket *webSocket;
 @property (nonatomic, weak) id<MFWebSocketManagerDelegate> delegate;
 
-@property (nonatomic, copy, readonly) MFSocketDidConnectBlock connectSuccessBlock;
-@property (nonatomic, copy, readonly) MFSocketDidFailBlock connectFailBlock;
-@property (nonatomic, copy, readonly) MFSocketDidCloseBlock closeBlock;
+@property (nonatomic, copy, readonly) MFSocketConnectSuccessBlock connectSuccessBlock;
+@property (nonatomic, copy, readonly) MFSocketFailBlock failBlock;
+@property (nonatomic, copy, readonly) MFSocketCloseBlock closeBlock;
 @property (nonatomic, assign, readonly) SRReadyState socketReadyState;
 @property (nonatomic, assign, readonly, getter=isConnecting) BOOL connecting;
 
@@ -137,7 +137,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connectBlock 打开连接成功回调
  * @param failureBlock 打开连接失败回调
  */
-- (void)mf_openWithUrlString:(NSString *)urlStr connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock;
+- (void)mf_openWithUrlString:(NSString *)urlStr
+                     connect:(MFSocketConnectSuccessBlock)connectBlock
+                     failure:(MFSocketFailBlock)failureBlock;
 
 /**
  * 打开socket
@@ -146,7 +148,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connectBlock 打开连接成功回调
  * @param failureBlock 打开连接失败回调
  */
-- (void)mf_openWithUrl:(NSURL *)url connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock;
+- (void)mf_openWithUrl:(NSURL *)url
+               connect:(MFSocketConnectSuccessBlock)connectBlock
+               failure:(MFSocketFailBlock)failureBlock;
 
 /**
  * 打开socket
@@ -155,7 +159,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connectBlock 打开连接成功回调
  * @param failureBlock 打开连接失败回调
  */
-- (void)mf_openWithRequest:(NSURLRequest *)request connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock;
+- (void)mf_openWithRequest:(NSURLRequest *)request
+                   connect:(MFSocketConnectSuccessBlock)connectBlock
+                   failure:(MFSocketFailBlock)failureBlock;
 
 /**
  * 发送消息
@@ -164,7 +170,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param receiveBlock 收到服务端数据返回回调
  * @param failureBlock 未收到服务端数据返回回调
  */
-- (void)mf_send:(NSDictionary *)dicData receive:(MFSocketDidReceiveBlock)receiveBlock failure:(MFSocketDidFailBlock)failureBlock;
+- (void)mf_send:(NSDictionary *)dicData
+        receive:(MFSocketReceiveMessageBlock)receiveBlock
+        failure:(MFSocketFailBlock)failureBlock;
 
 /**
  * 手动启动HeartBeat，调用之后会将manualStartHeartBeat置为YES
@@ -178,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param closeBlock 关闭回调
  */
-- (void)mf_closeSocketWithBlock:(MFSocketDidCloseBlock)closeBlock;
+- (void)mf_closeSocketWithBlock:(MFSocketCloseBlock)closeBlock;
 
 NS_ASSUME_NONNULL_END
 
