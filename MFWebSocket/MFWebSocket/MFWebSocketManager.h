@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "SocketRocket/SocketRocket.h"
 #import "SocketRocket/SRWebSocket.h"
 
 #define MFWebSocketShareManager [MFWebSocketManager shareManager]
@@ -123,6 +122,11 @@ NS_ASSUME_NONNULL_BEGIN
  * 错误域名，默认：com.xby.XBYSocket
  */
 @property (nonatomic, strong) NSString *errorDomain;
+
+/**
+ * 是否允许服务端发送未含有key值为"identificationID"的消息，当服务端发送消息未包含该key值，则没有block与之关联，消息接收需要在delegate或者notification中接收，默认为YES
+ */
+@property (nonatomic, assign) BOOL allowEmptyKeyMessageFromServer;
 
 + (instancetype)shareManager;
 

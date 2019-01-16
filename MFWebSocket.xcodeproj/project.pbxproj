@@ -139,8 +139,8 @@
 		EAB49C0721B154D500624D05 /* MFWebSocket */ = {
 			isa = PBXGroup;
 			children = (
-				EAB49C0821B154D500624D05 /* MFWebSocketManager.m */,
 				EAB49C0921B154D500624D05 /* MFWebSocketManager.h */,
+				EAB49C0821B154D500624D05 /* MFWebSocketManager.m */,
 			);
 			path = MFWebSocket;
 			sourceTree = "<group>";

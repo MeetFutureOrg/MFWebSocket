@@ -352,6 +352,7 @@ static MFWebSocketManager *instance;
     _pingInterval = 2;                      //ping发送时间，默认2秒一次
     _manualStartHeartBeat = NO;
     _autoStartHeartBeatDelay = 0;
+    _allowEmptyKeyMessageFromServer = YES;
 }
 
 - (NSString *)p_currentTimeString {
@@ -402,7 +403,15 @@ static MFWebSocketManager *instance;
                                                                    error:&error];
     NSString *identificationID = @"";
     if (![parseDataDic.allKeys containsObject:kIdentificationIDKey]) {
-        NSLog(@"%@",[NSError errorWithDomain:_errorDomain code:MFSocketReceiveWrongFormatDataCode userInfo:@{NSLocalizedDescriptionKey: @"Socket receive wrong format data"}]);
+        if (_allowEmptyKeyMessageFromServer) {
+            if([self.delegate respondsToSelector:@selector(MFWebSocket:didReceiveMessage:)]) {
+                [self.delegate MFWebSocket:webSocket didReceiveMessage:parseDataDic];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSocketReceiveMessageNotification object:parseDataDic];
+        } else {
+            NSLog(@"%@",[NSError errorWithDomain:_errorDomain code:MFSocketReceiveWrongFormatDataCode userInfo:@{NSLocalizedDescriptionKey: @"Socket receive wrong format data"}]);
+        }
+        
         return;
     }
     
