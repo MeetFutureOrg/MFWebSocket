@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "SocketRocket/SocketRocket.h"
 #import "SocketRocket/SRWebSocket.h"
 
 #define MFWebSocketShareManager [MFWebSocketManager shareManager]
@@ -49,8 +48,8 @@ typedef NS_ENUM(NSInteger, MFSocketCode){
     MFSocketTimeoutCode                    = 504,  //正常定义，符合http 504超时定义
     MFSocketCloseNormalCode                = 1101, //自定义，socket正常关闭
     MFSocketCloseErrorCode                 , //自定义，socket异常关闭
-    MFSocketCloseToReconnectCode           , //自定义，socket重连之前关闭
-    MFSocketCloseReconnectFailCode         , //自定义，socket重连失败关闭
+    MFSocketCloseToReconnectCode           , //自定义，socket重连之前需要先关闭
+    MFSocketCloseReconnectFailCode         , //自定义，socket重连失败被关闭
     MFSocketEmptyCode                      , //自定义，socket被置空
     MFSocketChangedCode                    , //自定义，存在两个以上socket实例（这种情况发生在重连逻辑，[socket close]和socket=nil未等待didclose代理回调完成，就调用新的[socket open]方法）
     MFSocketReceiveWrongFormatDataCode     , //自定义，服务端返回数据没有返回唯一识别ID
@@ -58,22 +57,22 @@ typedef NS_ENUM(NSInteger, MFSocketCode){
     
 };
 
-typedef void(^MFSocketDidConnectBlock)(void);
+typedef void(^MFSocketConnectSuccessBlock)(void);
 
-typedef void(^MFSocketDidFailBlock)(NSError *error);
+typedef void(^MFSocketFailBlock)(NSError *error);
 
-typedef void(^MFSocketDidCloseBlock)(NSInteger code,NSString *reason,BOOL wasClean);
+typedef void(^MFSocketCloseBlock)(NSInteger code, NSString *reason, BOOL wasClean);
 
-typedef void(^MFSocketDidReceiveBlock)(NSDictionary *message, MFSocketReceiveType type);
+typedef void(^MFSocketReceiveMessageBlock)(NSDictionary *message, MFSocketReceiveType type);
 
 @interface MFWebSocketManager : NSObject
 
 @property (nonatomic, strong, readonly) SRWebSocket *webSocket;
 @property (nonatomic, weak) id<MFWebSocketManagerDelegate> delegate;
 
-@property (nonatomic, copy, readonly) MFSocketDidConnectBlock connectSuccessBlock;
-@property (nonatomic, copy, readonly) MFSocketDidFailBlock connectFailBlock;
-@property (nonatomic, copy, readonly) MFSocketDidCloseBlock closeBlock;
+@property (nonatomic, copy, readonly) MFSocketConnectSuccessBlock connectSuccessBlock;
+@property (nonatomic, copy, readonly) MFSocketFailBlock failBlock;
+@property (nonatomic, copy, readonly) MFSocketCloseBlock closeBlock;
 @property (nonatomic, assign, readonly) SRReadyState socketReadyState;
 @property (nonatomic, assign, readonly, getter=isConnecting) BOOL connecting;
 
@@ -124,6 +123,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) NSString *errorDomain;
 
+/**
+ * 是否允许服务端发送未含有key值为"identificationID"的消息，当服务端发送消息未包含该key值，则没有block与之关联，消息接收需要在delegate或者notification中接收，默认为YES
+ */
+@property (nonatomic, assign) BOOL allowEmptyKeyMessageFromServer;
+
 + (instancetype)shareManager;
 
 /**
@@ -133,7 +137,10 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connectBlock 打开连接成功回调
  * @param failureBlock 打开连接失败回调
  */
-- (void)mf_openWithUrlString:(NSString *)urlStr connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock;
+- (void)mf_openWithUrlString:(NSString *)urlStr
+                     connect:(MFSocketConnectSuccessBlock)connectBlock
+                     failure:(MFSocketFailBlock)failureBlock
+                       close:(MFSocketCloseBlock)closeBlock;
 
 /**
  * 打开socket
@@ -142,7 +149,10 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connectBlock 打开连接成功回调
  * @param failureBlock 打开连接失败回调
  */
-- (void)mf_openWithUrl:(NSURL *)url connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock;
+- (void)mf_openWithUrl:(NSURL *)url
+               connect:(MFSocketConnectSuccessBlock)connectBlock
+               failure:(MFSocketFailBlock)failureBlock
+                 close:(MFSocketCloseBlock)closeBlock;
 
 /**
  * 打开socket
@@ -151,7 +161,10 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connectBlock 打开连接成功回调
  * @param failureBlock 打开连接失败回调
  */
-- (void)mf_openWithRequest:(NSURLRequest *)request connect:(MFSocketDidConnectBlock)connectBlock failure:(MFSocketDidFailBlock)failureBlock;
+- (void)mf_openWithRequest:(NSURLRequest *)request
+                   connect:(MFSocketConnectSuccessBlock)connectBlock
+                   failure:(MFSocketFailBlock)failureBlock
+                     close:(MFSocketCloseBlock)closeBlock;
 
 /**
  * 发送消息
@@ -160,7 +173,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param receiveBlock 收到服务端数据返回回调
  * @param failureBlock 未收到服务端数据返回回调
  */
-- (void)mf_send:(NSDictionary *)dicData receive:(MFSocketDidReceiveBlock)receiveBlock failure:(MFSocketDidFailBlock)failureBlock;
+- (void)mf_send:(NSDictionary *)dicData
+        receive:(MFSocketReceiveMessageBlock)receiveBlock
+        failure:(MFSocketFailBlock)failureBlock;
 
 /**
  * 手动启动HeartBeat，调用之后会将manualStartHeartBeat置为YES
@@ -171,10 +186,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * 主动关闭socket
- *
- * @param closeBlock 关闭回调
  */
-- (void)mf_closeSocketWithBlock:(MFSocketDidCloseBlock)closeBlock;
+- (void)mf_closeSockeBySelf;
 
 NS_ASSUME_NONNULL_END
 
