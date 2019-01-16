@@ -34,7 +34,6 @@ typedef NS_ENUM(NSInteger, MFSocketOpenType){
     MFSocketOpenByRequest,
 };
 
-
 @interface MFWebSocketManager ()<SRWebSocketDelegate>
 
 @property (nonatomic, strong, readwrite) SRWebSocket *webSocket;
@@ -155,7 +154,7 @@ static MFWebSocketManager *instance;
 /**
  * 主动关闭socket
  */
-- (void)mf_closeSockeBySelf {
+- (void)mf_closeSocketBySelf {
     [self p_closeSocketWithCode:MFSocketCloseNormalCode reason:@"Socket close by self!"];
 }
 

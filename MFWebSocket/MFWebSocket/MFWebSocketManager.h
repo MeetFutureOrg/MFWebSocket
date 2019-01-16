@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 主动关闭socket
  */
-- (void)mf_closeSockeBySelf;
+- (void)mf_closeSocketBySelf;
 
 NS_ASSUME_NONNULL_END
 
