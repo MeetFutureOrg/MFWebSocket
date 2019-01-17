@@ -523,6 +523,7 @@ static MFWebSocketManager *instance;
             if (self.closeBlock) {
                 self.closeBlock(code, reason, wasClean);
             }
+            [self p_destoryHeartBeat];
             [[NSNotificationCenter defaultCenter] postNotificationName:kSocketCloseNotification
                                                                 object:self
                                                               userInfo:
